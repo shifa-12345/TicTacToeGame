@@ -55,7 +55,12 @@ function checkDraw() {
   }
 }
 //Game Logic
-music.play();
+var playMusic = function(){
+  music.play();
+  window.removeEventListener('click',playMusic)
+}
+window.addEventListener('click',playMusic)
+
 let boxes = document.getElementsByClassName("box");
 Array.from(boxes).forEach((element) => {
   let boxtext = element.querySelector(".boxtext");
